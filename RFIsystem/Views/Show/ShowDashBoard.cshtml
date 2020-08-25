@@ -1,0 +1,708 @@
+﻿@*@model IEnumerable<RFIsystem.Models.Showlistall>*@
+@model dynamic
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "ShowDashBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<br />
+<h2 style="font-size:32px;text-align:center;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif">
+    <span style="color: red">R</span>
+    <span style="color: blue">F</span>
+    <span style="color: cadetblue">I</span>
+    <span style="color: darkgreen">-</span>
+    <span style="color: brown">S</span>
+    <span style="color: dimgrey">Y</span>
+    <span style="color: darkgreen">S</span>
+    <span style="color: darkslateblue">T</span>
+    <span style="color: brown">E</span>
+    <span style="color: blue">M</span>
+
+</h2>
+@*<input id="btn" type="submit" value="submit" />*@
+
+<div class="tab table-responsive">
+    <button class="tablinks" onclick="openCity(event, 'DashBoard')" id="defaultOpen">DashBoard</button>
+    <button class="tablinks" onclick="openCity(event, 'hr')">Holding & Rejecting</button>
+    <button class="tablinks" onclick="openCity(event, 'Approval')">Approval</button>
+</div>
+
+<div id="DashBoard" class="table-responsive tabcontent" style="font-family: Arial, Helvetica, sans-serif" ;font-size:18px;">
+    <br />
+    <table id="tbtest" class="table table-striped table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th class="std">
+                    Descripline
+                </th>
+                <th class="std">
+                    Description
+                </th>
+                <th class="std">
+                    KKS_Code
+                </th>
+                <th class="std">
+                    KKS_Description
+                </th>
+                <th class="std">
+                    OpenQty
+                </th>
+                <th class="std">
+                    IssuedQty
+                </th>
+                <th class="std">
+                    AccQty
+                </th>
+                <th class="std">
+                    RejQty
+                </th>
+                <th class="std">
+                    OngoingQty
+                </th>
+                <th class="std">
+                    WaitingCloseQty
+                </th>
+                <th class="std">
+                    WaitingCloseQtyClient
+                </th>
+                <th class="std">
+                    CloseQty
+                </th>
+                <th class="std">
+                    CancelQty
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Showlistall showlistall in Model.Showlistall)
+            {
+                <tr>
+                    <td class="std">
+                        @showlistall.Descripline
+                    </td>
+                    <td class="std">
+                        @showlistall.Description
+                    </td>
+                    <td class="std">
+                        @showlistall.KKS_Code
+                    </td>
+                    <td class="std">
+                        @showlistall.KKS_Description
+                    </td>
+                    <td class="std">
+                        @showlistall.OpenQty
+                    </td>
+                    <td class="std">
+                        @showlistall.IssuedQty
+                    </td>
+                    <td>
+                        @showlistall.AccQty
+                    </td>
+                    <td class="std">
+                        @showlistall.RejQty
+                    </td>
+                    <td class="std">
+                        @showlistall.OngoingQty
+                    </td>
+                    <td class="std">
+                        @showlistall.WaitingCloseQty
+                    </td>
+                    <td class="std">
+                        @showlistall.WaitingCloseQtyClient
+                    </td>
+                    <td class="std">
+                        @showlistall.CloseQty
+                    </td>
+                    <td class="std">
+                        @showlistall.CancelQty
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="std">
+                    Descripline
+                </th>
+                <th class="std">
+                    Description
+                </th>
+                <th class="std">
+                    KKS_Code
+                </th>
+                <th class="std">
+                    KKS_Description
+                </th>
+                <th class="std">
+                    OpenQty
+                </th>
+                <th class="std">
+                    IssuedQty
+                </th>
+                <th class="std">
+                    AccQty
+                </th>
+                <th class="std">
+                    RejQty
+                </th>
+                <th class="std">
+                    OngoingQty
+                </th>
+                <th class="std">
+                    WaitingCloseQty
+                </th>
+                <th class="std">
+                    WaitingCloseQtyClient
+                </th>
+                <th class="std">
+                    CloseQty
+                </th>
+                <th class="std">
+                    CancelQty
+                </th>
+            </tr>
+
+        </tfoot>
+    </table>
+
+</div>
+
+<div id="hr" class="table-responsive tabcontent" style="font-family: Arial, Helvetica, sans-serif" ;font-size:18px;">
+    <br />
+    <table id="tbtest" class="table table-striped table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th class="std">
+                    Descripline
+                </th>
+                <th class="std">
+                    Description
+                </th>
+                <th class="std">
+                    KKS_Code
+                </th>
+                <th class="std">
+                    KKS_Description
+                </th>
+                <th class="std">
+                    OpenQty
+                </th>
+                <th class="std">
+                    IssuedQty
+                </th>
+                <th class="std">
+                    AccQty
+                </th>
+                <th class="std">
+                    RejQty
+                </th>
+                <th class="std">
+                    OngoingQty
+                </th>
+                <th class="std">
+                    WaitingCloseQty
+                </th>
+                <th class="std">
+                    WaitingCloseQtyClient
+                </th>
+                <th class="std">
+                    CloseQty
+                </th>
+                <th class="std">
+                    CancelQty
+                </th>
+
+                <th style="width:250px;">Prepared</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Showlistall showlistall in Model.Showlistall)
+            {
+                <tr>
+                    <td class="std">
+                        @showlistall.Descripline
+                    </td>
+                    <td class="std">
+                        @showlistall.Description
+                    </td>
+                    <td class="std">
+                        @showlistall.KKS_Code
+                    </td>
+                    <td class="std">
+                        @showlistall.KKS_Description
+                    </td>
+                    <td class="std">
+                        @showlistall.OpenQty
+                    </td>
+                    <td class="std">
+                        @showlistall.IssuedQty
+                    </td>
+                    <td class="std">
+                        @showlistall.AccQty
+                    </td>
+                    <td class="std">
+                        @showlistall.RejQty
+                    </td>
+                    <td class="std">
+                        @showlistall.OngoingQty
+                    </td>
+                    <td class="std">
+                        @showlistall.WaitingCloseQty
+                    </td>
+                    <td class="std">
+                        @showlistall.WaitingCloseQtyClient
+                    </td>
+                    <td class="std">
+                        @showlistall.CloseQty
+                    </td>
+                    <td class="std">
+                        @showlistall.CancelQty
+                    </td>
+                    @*@{ if (Session["User_name"] != null)
+                        {*@
+
+                    @*} }*@
+
+                    <td class="std">
+                        <button type="button" onclick="Prepared();" id="Approved" class="btn btn-success">
+                            <i class="glyphicon glyphicon-check" aria-hidden="true"></i> Prepared
+                        </button>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="std">
+                    Descripline
+                </th>
+                <th class="std">
+                    Description
+                </th>
+                <th class="std">
+                    KKS_Code
+                </th>
+                <th class="std">
+                    KKS_Description
+                </th>
+                <th class="std">
+                    OpenQty
+                </th>
+                <th class="std">
+                    IssuedQty
+                </th>
+                <th class="std">
+                    AccQty
+                </th>
+                <th class="std">
+                    RejQty
+                </th>
+                <th class="std">
+                    OngoingQty
+                </th>
+                <th class="std">
+                    WaitingCloseQty
+                </th>
+                <th class="std">
+                    WaitingCloseQtyClient
+                </th>
+                <th class="std">
+                    CloseQty
+                </th>
+                <th class="std">
+                    CancelQty
+                </th>
+
+                <th style="width:250px;">Prepared</th>
+            </tr>
+
+        </tfoot>
+    </table>
+
+</div>
+
+
+<div id="Approval" class="table-responsive tabcontent" style="font-family: Arial, Helvetica, sans-serif" ;font-size:18px;">
+    <br />
+    <table id="tbtest" class="table table-striped table-bordered" style="width:100%">
+        <thead class="table-dark">
+            <tr>
+                <th class="std">
+                    Job_no
+                </th>
+                <th class="std">
+                    User_name
+                </th>
+                <th class="std">
+                    Frist_Name
+                </th>
+                <th class="std">
+                    Prepared
+                </th>
+                <th class="std">
+                    PreparedDate
+                </th>
+                <th class="std">
+                    PreparedBy
+                </th>
+                <th class="std">
+                    Verified
+                </th>
+                <th class="std">
+                    VerifiedDate
+                </th>
+                <th class="std">
+                    VerifiedBy
+                </th>
+                <th class="std">
+                    Received
+                </th>
+                <th class="std">
+                    ReceivedDate
+                </th>
+                <th class="std">
+                    ReceivedBy
+                </th>
+
+
+                <th style="width:250px;">Holding</th>
+                <th style="width:250px;">ReJect</th>
+                <th style="width:250px;">Approved</th>
+                <th style="width:250px;">Recieved</th>
+                <th style="width:250px;">Report</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ShowBeforeApproved showBeforeApproved in Model.ShowBeforeApproved)
+            {
+                <tr>
+                    <td class="std">
+                        @showBeforeApproved.Job_no
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.User_name
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.Frist_name
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.Prepared
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.PreparedDate.ToString("dd-MM-yyyy")
+
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.PreparedBy
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.Verified
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.VerifiedDate
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.VerifiedBy
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.Received
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.ReceivedDate
+                    </td>
+                    <td class="std">
+                        @showBeforeApproved.ReceivedBy
+                    </td>
+
+                    @*@{ if (Session["User_name"] != null)
+                        {*@
+
+                    @*} }*@
+
+                    <td class="std">
+                        <button type="button" onclick="Holding('@showBeforeApproved.Job_no');" id="Holding" class="btn btn-warning">
+                            <i class="glyphicon glyphicon-check" aria-hidden="true"></i> Holding
+                        </button>
+                    </td>
+                    <td class="std">
+                        <button type="button" onclick="Reject();" id="Approved" class="btn btn-secondary">
+                            <i class="glyphicon glyphicon-check" aria-hidden="true"></i> Reject
+                        </button>
+                    </td>
+                    <td class="std">
+                        <button type="button" onclick="Approved();" id="Approved" class="btn btn-info">
+                            <i class="glyphicon glyphicon-check" aria-hidden="true"></i> Approved
+                        </button>
+                    </td>
+                    <td class="std">
+                        <button type="button" onclick="Recieved();" id="Approved" class="btn btn-success">
+                            <i class="glyphicon glyphicon-check" aria-hidden="true"></i> Recieved
+                        </button>
+                    </td>
+                    <td class="std">
+                        <button type="button" onclick="Report();" id="Approved" class="btn btn-danger">
+                            <i class="glyphicon glyphicon-check" aria-hidden="true"></i> Report
+                        </button>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th class="std">
+                    Job_no
+                </th>
+                <th class="std">
+                    User_name
+                </th>
+                <th class="std">
+                    Frist_Name
+                </th>
+                <th class="std">
+                    Prepared
+                </th>
+                <th class="std">
+                    PreparedDate
+                </th>
+                <th class="std">
+                    PreparedBy
+                </th>
+                <th class="std">
+                    Verified
+                </th>
+                <th class="std">
+                    VerifiedDate
+                </th>
+                <th class="std">
+                    VerifiedBy
+                </th>
+                <th class="std">
+                    Received
+                </th>
+                <th class="std">
+                    ReceivedDate
+                </th>
+                <th class="std">
+                    ReceivedBy
+                </th>
+
+
+                <th style="width:250px;">Holding</th>
+                <th style="width:250px;">ReJect</th>
+                <th style="width:250px;">Approved</th>
+                <th style="width:250px;">Recieved</th>
+                <th style="width:250px;">Report</th>
+            </tr>
+
+        </tfoot>
+    </table>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.2/Chart.bundle.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //$('#tbtest').DataTable();
+            $("table").DataTable();
+        });
+        $(document).ready(function () {
+            $("#btn").click(function () {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                )
+            });
+        });
+        $(document).ready(function () {
+            var url = '@Url.Action("LoginIndex","Login")';
+            $("#btnt").click(function () {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, Approved it!'
+                }).then((result) => {
+                    if (result.value) {
+
+                        window.location.href = url
+                    }
+
+                })
+
+            });
+        });
+    </script>
+    <script>
+        function Holding() {
+
+         var url = '@Url.Action("LoginIndex","Login")';
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to Holding !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Holding it!'
+        }).then((result) => {
+            if (result.value) {
+
+                window.location.href = url
+            }
+
+        })
+
+        } function Reject() {
+         var url = '@Url.Action("LoginIndex","Login")';
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to Reject!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Reject it!'
+        }).then((result) => {
+            if (result.value) {
+
+                window.location.href = url
+            }
+
+        })
+
+        } function Approved() {
+         var url = '@Url.Action("LoginIndex","Login")';
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to Approved!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Approved it!'
+        }).then((result) => {
+            if (result.value) {
+
+                window.location.href = url
+            }
+
+        })
+
+        } function Recieved() {
+         var url = '@Url.Action("LoginIndex","Login")';
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to Recieved !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Recieved it!'
+        }).then((result) => {
+            if (result.value) {
+
+                window.location.href = url
+            }
+
+        })
+
+    }function Report() {
+         var url = '@Url.Action("LoginIndex","Login")';
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to get Report !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Report it!'
+        }).then((result) => {
+            if (result.value) {
+
+                window.location.href = url
+            }
+
+        })
+
+    }function Prepared() {
+         var url = '@Url.Action("LoginIndex","Login")';
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to Prepared !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Prepared it!'
+        }).then((result) => {
+            if (result.value) {
+
+                window.location.href = url
+            }
+
+        })
+
+    }function Reportcompleted() {
+         var url = '@Url.Action("LoginIndex","Login")';
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to get Report completed !",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Get report !'
+        }).then((result) => {
+            if (result.value) {
+
+                window.location.href = url
+            }
+
+        })
+
+    }
+
+    </script>
+    <script>
+
+        function openCity(evt, cityName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(cityName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $("#lo1").hide();
+            $("body").toggleClass("body")
+        });
+
+
+    </script>
+
+}
